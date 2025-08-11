@@ -13,10 +13,10 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <main className="flex flex-col min-h-screen">
+      <main className="flex flex-col min-h-screen w-full bg-bg-primary">
         <Background />
         <Header route={route} setRoute={setRoute} />
-        <div className="flex-grow flex flex-col justify-center">
+        <div className="flex-grow flex flex-col justify-center px-4 sm:px-8 md:px-16 max-w-screen-xl mx-auto w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={route}
@@ -24,6 +24,7 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="w-full"
             >
               {route === '/' && <HomePage />}
               {route === '/resume' && <ResumePage />}
